@@ -4,6 +4,7 @@ $a = 1231122;
 $b = "reset001";
 $c = "reset002";
 $d = "reset003";
+$str = "starcao";
 /**
  * CodeIgniter
  *
