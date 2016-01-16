@@ -1,5 +1,6 @@
 <?php
 echo 123;
+$a = 123455;
 /**
  * CodeIgniter
  *
