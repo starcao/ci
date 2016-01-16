@@ -2,6 +2,7 @@
 echo 123;
 $a = 1231122;
 $b = "reset001";
+$c = "reset002";
 /**
  * CodeIgniter
  *
