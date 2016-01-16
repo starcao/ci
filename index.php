@@ -1,4 +1,5 @@
 <?php
+echo 11111;
 /**
  * CodeIgniter
  *
