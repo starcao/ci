@@ -5,6 +5,7 @@ $b = "reset001";
 $c = "reset002";
 $d = "reset003";
 $str = "starcao";
+$arr = array();
 /**
  * CodeIgniter
  *
