@@ -1,5 +1,6 @@
 <?php
-/**
+echo 345;
+/*
  * CodeIgniter
  *
  * An open source application development framework for PHP
