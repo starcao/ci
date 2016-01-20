@@ -1,5 +1,4 @@
 <?php
-echo 345;
 /*
  * CodeIgniter
  *
