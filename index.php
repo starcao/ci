@@ -1,5 +1,4 @@
 <?php
-echo "I'm starcao";
 /*
  * CodeIgniter
  *
