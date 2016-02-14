@@ -1,4 +1,5 @@
 <?php
+echo "master";exit;
 /*
  * CodeIgniter
  *
