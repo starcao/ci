@@ -92,7 +92,7 @@ class hotel extends CI_Controller
         $bigarr = $this->db->query("select max(id) as maxid from hotel_content where status = 1")->first_row();
         $maxid = $bigarr->maxid;
 
-        $prevId = 7910;
+        $prevId = 0;
         $pagesize = 30;
         while($prevId < $maxid)
         {
@@ -216,11 +216,11 @@ class hotel extends CI_Controller
         @$dom->loadHTML($html);
 
         $h1 = $dom->getElementById("HEADING");
-        $data['cn'] = $h1->firstChild->nextSibling->nextSibling->nodeValue;
+        $data['cn'] = @$h1->firstChild->nextSibling->nextSibling->nodeValue;
         $data['en'] = @$h1->firstChild->nextSibling->nextSibling->nextSibling->nodeValue;
-
-        $div = $dom->getElementById("HEADING_GROUP")->lastChild->previousSibling->lastChild->previousSibling->firstChild->nextSibling->firstChild->nextSibling->firstChild->nextSibling;
-
+        $div = @$dom->getElementById("HEADING_GROUP")->lastChild->previousSibling->lastChild->previousSibling->firstChild->nextSibling->firstChild->nextSibling->firstChild->nextSibling;
+        if(!$data['cn'] || !$data['en'] || gettype($div) != "object")
+            return array();
         $data['address'] = @$div->lastChild->previousSibling->nodeValue;
 
         $phonescriptarr = $div->getElementsByTagName("script");
