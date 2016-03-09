@@ -310,6 +310,11 @@ class hotel extends CI_Controller
                 preg_match("/\d{1,2}:\d{1,2}/", $planatime, $matches);
                 $data['flight_des_time'] = $matches[0];
 
+                $data['fcity'] = $flightObj->DCityName;
+                $data['acity'] = $flightObj->ACityName;
+                $data['fterminal'] = $flightObj->DTerminal;
+                $data['aterminal'] = $flightObj->ATerminal;
+
                 $data['flight_taxation'] = " ";
                 $data['flight_time'] = $flightObj->FlightDuration;
                 $data['addtime'] = date("Y-m-d H:i:s");
