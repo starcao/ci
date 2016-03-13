@@ -1,19 +1,7 @@
-<?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+<?php defined('BASEPATH') OR exit('No direct script access allowed');
 class MY_Loader extends CI_Loader
 {
-  /**
-   * List of loaded sercices
-   * @var array
-   * @access protected
-   */
   protected $_ci_services = array();
-
-  /**
-   * List of paths to load sercices from
-   * @var array
-   * @access protected
-   */
   protected $_ci_service_paths  = array();
 
   public function __construct()
@@ -42,8 +30,7 @@ class MY_Loader extends CI_Loader
     if($service == '' or isset($this->_ci_services[$service]))
       return FALSE;
 
-    if(!is_null($params) && !is_array($params))
-      $params = NULL;
+    $params = is_array($params) ? $params : NULL;
 
     $subdir = '';
     if(($last_slash = strrpos($service, '/')) !== FALSE)
@@ -53,7 +40,7 @@ class MY_Loader extends CI_Loader
     }
 
     if(!class_exists('CI_Model', FALSE))
-      load_class('Model', 'core');
+      load_class('model', 'core');
 
     foreach($this->_ci_service_paths as $path)
     {
@@ -62,8 +49,7 @@ class MY_Loader extends CI_Loader
         continue;
 
       include_once($filepath);
-      if(empty($object_name))
-        $object_name = $service;
+      $object_name = $object_name ?: $service;
 
       $service = ucfirst($service);
       $CI = &get_instance();
